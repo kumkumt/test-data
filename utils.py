@@ -24,25 +24,6 @@ from tienda.suppliers.models import SupplierProduct
 from tienda.product_selection.models import ProductRegionStatus
 from tienda.trade_items.models import TradeItem
 
-def product_status_id_to_name(
-    product_status_id: int | str | None,
-) -> str:
-    status = (
-        ProductStatus(int(product_status_id))
-        if product_status_id and product_status_id != "None"
-        else None
-    )
-    if status is None:
-        return "Not available in region"
-
-    return status.name
-
-
-def product_has_region_status_in_country(product_id: int, country: str) -> bool:
-    return ProductRegionStatus.objects.filter(
-        product_id=product_id, region__site__country=country
-    ).exists()
-
 
 def  expiry_data_insert ()-> ExpiryHandling :
     xlrd.xlsx.ensure_elementtree_imported(False, None)
