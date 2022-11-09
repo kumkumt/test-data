@@ -29,7 +29,7 @@ values =(cproduct_id,sproduct_id,expiry_days_for_sale,expiry_days_for_supplier,e
 
 #establishing the connection
 conn = psycopg2.connect(
-database="tienda", user='kumkum', password='150847', host='localhost', port= '5432')
+database="tienda", user='', password='', host='localhost', port= '5432')
   
 #Creating a cursor object using the cursor() method
 cursor = conn.cursor()
